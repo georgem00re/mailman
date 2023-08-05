@@ -1,0 +1,41 @@
+
+@use "variables";
+@use "components/request-editor";
+@use "components/response-viewer";
+
+* {
+	padding: 0px;
+	margin: 0px;
+	font-family: "Avenir";
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	box-sizing: border-box;
+}
+
+nav {
+	width: 100%;
+	background-color: white;
+}
+
+nav button {
+	background-color: transparent;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-style: none;
+	cursor: pointer;
+}
+
+.selected {
+	border-bottom-style: solid;
+	border-bottom-color: purple;
+}
