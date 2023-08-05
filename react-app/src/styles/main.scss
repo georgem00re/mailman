@@ -1,7 +1,9 @@
 
-@use "variables";
+@use "colors";
 @use "components/request-editor";
 @use "components/response-viewer";
+@use "components/side-menu";
+@use "components/request-params-tab";
 
 * {
 	padding: 0px;
@@ -11,7 +13,7 @@
 
 .grid {
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: 1fr 5fr;
 	grid-template-rows: 1fr 1fr;
 	position: fixed;
 	top: 0px;

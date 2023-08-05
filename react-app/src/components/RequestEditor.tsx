@@ -28,7 +28,7 @@ export default function RequestEditor() {
 					<option value="PUT">PUT</option>
 					<option value="DELETE">DELETE</option>
 				</select>
-				<input type="text" style={{ width: "100%" }}/>
+				<input type="text" style={{ width: "100%" }} placeholder="https://www.google.com"/>
 				<button style={{ marginLeft: "10px", backgroundColor: "#377CE0", color: "white", borderStyle: "none", paddingLeft: "30px", paddingRight: "30px", borderRadius: "2px", cursor: "pointer"}}>Send</button>
 			</div>
 			<nav>

@@ -18,7 +18,7 @@ export default function ResponseViewer() {
 	}
 
 	return (
-		<div className="response-viewer" style={{ backgroundColor: "yellow" }}>
+		<div className="response-viewer">
 			<nav>
 				<button className={activeTab == 0 ? "selected" : null} onClick={() => setActiveTab(0)}>Body</button>
 				<button className={activeTab == 1 ? "selected" : null}onClick={() => setActiveTab(1)}>Cookies</button>

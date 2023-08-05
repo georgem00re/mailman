@@ -1,25 +1,25 @@
 
-@use "../variables";
+@use "../colors";
 
 .request-editor {
-
+	grid-column:  2 / 3;
 }
 
 .request-editor input[type="text"] {
-	background-color: variables.$bg-grey;
+	background-color: colors.$bg-grey;
 	border-style: solid;
 	border-width: 1px;
 	outline: none;
 	padding: 7px;
-	border-color: variables.$br-grey;
+	border-color: colors.$br-grey;
 }
 
 .request-editor select {
 	background-color: green;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
-	background-color: variables.$bg-grey;
-	border-color: variables.$br-grey;
+	background-color: colors.$bg-grey;
+	border-color: colors.$br-grey;
 	padding: 7px;
 	border-right-style: none;
 }

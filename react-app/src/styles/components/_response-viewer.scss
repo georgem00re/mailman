@@ -1,5 +1,9 @@
 
+@use "../colors";
 
 .response-viewer {
-
+	grid-column: 2 / 3;
+	border-top-style: solid;
+	border-width: 1px;
+	border-top-color: colors.$br-grey;
 }
