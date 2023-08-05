@@ -4,6 +4,7 @@
 @use "components/response-viewer";
 @use "components/side-menu";
 @use "components/request-params-tab";
+@use "components/response-body-tab";
 
 * {
 	padding: 0px;
@@ -11,15 +12,15 @@
 	font-family: "Avenir";
 }
 
+body, html, #root, .grid{
+	height: 100%;
+	width: 100%;
+}
+
 .grid {
 	display: grid;
-	grid-template-columns: 1fr 5fr;
-	grid-template-rows: 1fr 1fr;
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
+	grid-template-columns: 1fr minmax(70%, 4fr);
+	grid-template-rows: 1fr minmax(50%, 1fr);
 	box-sizing: border-box;
 }
 
@@ -40,4 +41,9 @@ nav button {
 .selected {
 	border-bottom-style: solid;
 	border-bottom-color: purple;
+}
+
+.CodeMirror {
+	height: 100%;
+	width: 100%;
 }

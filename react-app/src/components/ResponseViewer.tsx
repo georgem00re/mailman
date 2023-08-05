@@ -24,7 +24,7 @@ export default function ResponseViewer() {
 				<button className={activeTab == 1 ? "selected" : null}onClick={() => setActiveTab(1)}>Cookies</button>
 				<button className={activeTab == 2 ? "selected" : null} onClick={() => setActiveTab(2)}>Headers</button>
 			</nav>
-			<div>{renderTab()}</div>
+			{renderTab()}
 		</div>
 	)
 }
