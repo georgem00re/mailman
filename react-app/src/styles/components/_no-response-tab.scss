@@ -1,0 +1,16 @@
+
+.no-response-tab {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 5rem;
+}
+
+.no-response-tab p {
+	font-size: 1rem;
+	margin-top: 10px;
+}
