@@ -1,7 +1,7 @@
 
 @use "../colors";
 
-.request-params-tab {
+.key-value-table {
 	display: grid;
 	grid-template-columns: fit-content(50px) 3fr 3fr;
 	align-items: center;
@@ -10,31 +10,32 @@
 	border-bottom-style: solid;
 	border-color: colors.$br-grey;
 	border-width: 1px;
+	overflow-y: scroll;
 }
 
-.query-params-title {
+.key-value-table .title {
 	grid-column: 1 / -1;
-	font-size: 1rem;
+	font-size: 0.85rem;
 	font-family: "Avenir Light";
 	padding: 10px;
 	background-color: white;
 }
 
-.empty-cell {
+.key-value-table .empty-cell {
 	background-color: white;
 	display: flex;
 	width: 100%;
 	height: 100%;
 }
 
-.query-params-table-header {
-	font-size: 0.8rem;
+.key-value-table .table-header {
+	font-size: 0.75rem;
 	background-color: white;
 	padding: 5px;
-	font-family: "Avenir Black";
+	font-family: "Avenir Heavy";
 }
 
-.checkbox {
+.key-value-table .checkbox {
 	display: flex;
 	padding: 10px;
 	justify-content: center;
@@ -42,11 +43,7 @@
 	background-color: white;
 }
 
-.checkbox input {
-
-}
-
-.key, .value {
+.key-value-table .key, .key-value-table .value {
 	font-size: 0.8rem;
 	font-family: "Avenir Light";
 	background-color: white;

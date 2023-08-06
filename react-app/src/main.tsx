@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import RequestEditor from "./components/RequestEditor";
 import ResponseViewer from "./components/ResponseViewer";
 import SideMenu from "./components/SideMenu";
+import store from "./state/store";
+import { Provider } from "react-redux";
 
 export default function App() {
 	return (
@@ -16,6 +18,8 @@ export default function App() {
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
-		<App/>
+		<Provider store={store}>
+			<App/>
+		</Provider>
 	</React.StrictMode>
 )

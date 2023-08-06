@@ -4,11 +4,12 @@ import ResponseBodyTab from "./ResponseBodyTab";
 import ResponseCookiesTab from "./ResponseCookiesTab";
 import ResponseHeadersTab from "./ResponseHeadersTab";
 import NoResponseTab from "./NoResponseTab";
+import { useSelector } from "react-redux";
 
 export default function ResponseViewer() {
 
 	const [activeTab, setActiveTab] = useState(0);
-	const [response, setResponse] = useState(null);
+	const response = useSelector((state: State) => state.response) 
 
 	const renderTab = () => {
 		if (response == null) return <NoResponseTab/>
@@ -37,7 +38,7 @@ export default function ResponseViewer() {
 	return (
 		<div className="response-viewer">
 			<nav>{renderNavContent()}</nav>
-			{renderTab()}
+			<div style={{ width: "100%", height: "100%"}}>{renderTab()}</div>
 		</div>
 	)
 }

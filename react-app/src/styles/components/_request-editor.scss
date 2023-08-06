@@ -3,6 +3,7 @@
 
 .request-editor {
 	grid-column:  2 / 3;
+	overflow-y: scroll;
 }
 
 .request-editor input[type="text"] {
