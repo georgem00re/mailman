@@ -1,12 +1,27 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import RequestEditor from "./components/RequestEditor";
 import ResponseViewer from "./components/ResponseViewer";
 import SideMenu from "./components/SideMenu";
 import store from "./state/store";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
+import { fetchExampleResponse } from "./services/data.service";
+import { updateResponse } from "./state/actions";
 
 export default function App() {
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		fetchExampleResponse().then((res) => {
+			console.log(res);
+			dispatch(updateResponse(res));
+		}).catch((err) => {
+			console.log(err);
+			dispatch(updateResponse(err))
+		})
+	});
+
 	return (
 		<div className="grid">
 			<SideMenu/>
@@ -17,9 +32,7 @@ export default function App() {
 }
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<App/>
-		</Provider>
-	</React.StrictMode>
+	<Provider store={store}>
+		<App/>
+	</Provider>
 )

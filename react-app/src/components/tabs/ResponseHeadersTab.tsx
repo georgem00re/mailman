@@ -1,5 +1,5 @@
 
-import KeyValueTable from "./KeyValueTable";
+import KeyValueTable from "../KeyValueTable";
 
 export default function ResponseHeadersTab() {
 

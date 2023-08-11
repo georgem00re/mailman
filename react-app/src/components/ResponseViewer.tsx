@@ -1,9 +1,9 @@
 
 import { Fragment, useState } from "react";
-import ResponseBodyTab from "./ResponseBodyTab";
-import ResponseCookiesTab from "./ResponseCookiesTab";
-import ResponseHeadersTab from "./ResponseHeadersTab";
-import NoResponseTab from "./NoResponseTab";
+import ResponseBodyTab from "./tabs/ResponseBodyTab";
+import ResponseCookiesTab from "./tabs/ResponseCookiesTab";
+import ResponseHeadersTab from "./tabs/ResponseHeadersTab";
+import NoResponseTab from "./tabs/NoResponseTab";
 import { useSelector } from "react-redux";
 
 export default function ResponseViewer() {

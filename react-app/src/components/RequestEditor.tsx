@@ -1,10 +1,11 @@
 
 import { Fragment, useState } from "react";
-import RequestParamsTab from "./RequestParamsTab";
-import RequestHeadersTab from "./RequestHeadersTab";
-import RequestBodyTab from "./RequestBodyTab";
+import RequestParamsTab from "./tabs/RequestParamsTab";
+import RequestHeadersTab from "./tabs/RequestHeadersTab";
+import RequestBodyTab from "./tabs/RequestBodyTab";
 import { useSelector, useDispatch } from "react-redux";
 import { updateRequestUrl, updateRequestMethod} from "../state/actions";
+import SendRequestButton from "./buttons/SendRequestButton";
 
 const httpMethods = ["GET", "POST", "PUT", "DELETE"]
 
@@ -42,7 +43,7 @@ export default function RequestEditor() {
 					<option value="DELETE">DELETE</option>
 				</select>
 				<input type="text" style={{ width: "100%" }} placeholder="Enter URL or paste text here" value={requestUrl} onChange={handleInputChange}/>
-				<button style={{ marginLeft: "10px", backgroundColor: "#467AE9", color: "white", borderStyle: "none", paddingLeft: "30px", paddingRight: "30px", borderRadius: "2px", cursor: "pointer"}}>Send</button>
+				<SendRequestButton/>
 			</div>
 			<nav>
 				<button className={activeTab == 0 ? "selected" : null} onClick={() => setActiveTab(0)}>Params</button>
