@@ -1,14 +1,18 @@
 
 import { Fragment } from "react";
-import { BsFillTrashFill } from "react-icons/Bs";
+import { BsFillTrashFill, BsPlusSquareFill } from "react-icons/Bs";
 
 interface KeyValueTableProps {
 	title: string;
 	keyValuePairs?: KeyValuePair;
-	onToggle(index: number): any; 
+	onToggle(index: number): any;
+	onKeyChange(index: number, value: string): any;
+	onValueChange(index: number, value: string): any;
+	onDelete(index: number): any;
+	onAdd(): any;
 }
 
-export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete }: KeyValueTableProps) {
+export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete, onKeyChange, onValueChange, onAdd }: KeyValueTableProps) {
 
 	const rows = keyValuePairs?.map((element, index) => {
 		return (
@@ -16,8 +20,8 @@ export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete
 				<div className="checkbox">
 					<input type="checkbox" disabled={element.selected == null} style={{ opacity: element.selected == null ? "0" : "1" }} checked={element.selected} onClick={() => onToggle(index)}/>
 				</div>
-				<h1 className="key">{element.keyStr}</h1>
-				<h1 className="value ">{element.value}</h1>
+				<input className="key" value={element.keyStr} onChange={(e) => onKeyChange(index, e.target.value)} placeholder="Key"/>
+				<input className="value" value={element.value} onChange={(e) => onValueChange(index, e.target.value)} placeholder="Value"/>
 				<button onClick={() => onDelete(index)}>
 					<BsFillTrashFill/>
 				</button>
@@ -37,6 +41,9 @@ export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete
 					<BsFillTrashFill style={{ opacity: "0"}}/>
 			</button>
 			{rows}
+			<button style={{ gridColumn: "1 / -1"}} onClick={onAdd}>
+				<BsPlusSquareFill style={{ opacity: "1"}}/>
+			</button>
 		</div>
 	)
 }

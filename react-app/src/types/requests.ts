@@ -7,12 +7,12 @@ interface KeyValuePair {
 
 export interface RequestHeader {
 	selected?: boolean,
-	key: string,
+	keyStr: string,
 	value: string,
 }
 
 export interface QueryParam {
 	selected?: boolean,
-	key: string,
+	keyStr: string,
 	value: string,
 }

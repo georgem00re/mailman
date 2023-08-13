@@ -29,10 +29,10 @@ export function updateResponse(res: object) {
 	}
 }
 
-export function addRequestHeader(reqHeader: RequestHeader) {
+export function addRequestHeader() {
 	return {
 		type: "ADD_REQUEST_HEADER",
-		payload: reqHeader,
+		payload: { selected: false, keyStr: "", value: "" },
 	}
 }
 
@@ -50,10 +50,10 @@ export function toggleRequestHeader(index: number) {
 	}
 }
 
-export function addQueryParam(queryParam: QueryParam) {
+export function addQueryParam() {
 	return {
 		type: "ADD_QUERY_PARAM",
-		payload: queryParam,
+		payload: { selected: false, keyStr: "", value: "" },
 	}
 }
 
@@ -68,6 +68,34 @@ export function toggleQueryParam(index: number) {
 	return {
 		type: "TOGGLE_QUERY_PARAM",
 		payload: index
+	}
+}
+
+export function updateQueryParamKey(index: number, value: string) {
+	return {
+		type: "UPDATE_QUERY_PARAM_KEY",
+		payload: { index, value }
+	}
+}
+
+export function updateQueryParamValue(index: number, value: string) {
+	return {
+		type: "UPDATE_QUERY_PARAM_VALUE",
+		payload: { index, value }
+	}
+}
+
+export function updateRequestHeaderValue(index: number, value: string) {
+	return {
+		type: "UPDATE_REQUEST_HEADER_VALUE",
+		payload: { index, value }
+	}
+}
+
+export function updateRequestHeaderKey(index: number, value: string) {
+	return {
+		type: "UPDATE_REQUEST_HEADER_KEY",
+		payload: { index, value }
 	}
 }
 

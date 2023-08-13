@@ -1,6 +1,7 @@
 
 import { RequestHeader, QueryParam } from "../types/requests"
 import { mockRequestHeaders, mockQueryParams } from "./mockState";
+import { addState, deleteState, toggleState, updateKey, updateValue } from "./helpers";
 
 interface Action {
 	payload: object;
@@ -8,67 +9,51 @@ interface Action {
 }
 
 export function requestUrlReducer(state = "", action: Action) {
-	if (action.type === "UPDATE_REQUEST_URL") {
-		return action.payload;
-	} else {
-		return state;
+	switch(action.type) {
+		case "UPDATE_REQUEST_URL": return action.payload;
+		default: return state;
 	}
 }
 
 export function requestMethodReducer(state = "GET", action: Action) {
-	if (action.type === "UPDATE_REQUEST_METHOD") {
-		return action.payload;
-	} else {
-		return state;
+	switch(action.type) {
+		case "UPDATE_REQUEST_METHOD": return action.payload;
+		default: return state;
 	}
 }
 
 export function requestBodyReducer(state: string = "testing", action: Action) {
-	if (action.type === "UPDATE_REQUEST_BODY") {
-		return action.payload;
-	} else {
-		return state;
+	switch(action.type) {
+		case "UPDATE_REQUEST_BODY": return action.payload;
+		default: return state;
 	}
 }
 
 export function requestHeadersReducer(state: RequestHeader[] = mockRequestHeaders, action: Action) {
-	if (action.type === "ADD_REQUEST_HEADER") {
-		return [ ...state, action.payload ]
-	} else if (action.type === "DELETE_REQUEST_HEADER") {
-		return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)];
-	} else if (action.type === "TOGGLE_REQUEST_HEADER") {
-		return state.map((element, index) => {
-			if (index == action.payload) return { ...element, selected: !element.selected }
-			else return element;
-		})
-	} else {
-		return state;
+	switch(action.type) {
+		case "ADD_REQUEST_HEADER": return addState(state, action);
+		case "DELETE_REQUEST_HEADER": return deleteState(state, action);
+		case "TOGGLE_REQUEST_HEADER": return toggleState(state, action);
+		case "UPDATE_REQUEST_HEADER_KEY": return updateKey(state, action);
+		case "UPDATE_REQUEST_HEADER_VALUE": return updateValue(state, action);
+		default: return state;
 	}
 }
 
 export function requestParamsReducer(state: QueryParam[] = mockQueryParams, action: Action) {
-	if (action.type === "ADD_QUERY_PARAM") {
-		return [ ...state, state[action.payload] ]
-
-	} else if (action.type === "DELETE_QUERY_PARAM") {
-		return [...state.slice(0, action.payload), ...state.slice(action.payload + 1)];
-
-	} else if (action.type === "TOGGLE_QUERY_PARAM") {
-		
-		return state.map((element, index) => {
-			if (index == action.payload) return { ...element, selected: !element.selected }
-			else return element;
-		})
-
-	} else {
-		return state;
+	switch(action.type) {
+		case "ADD_QUERY_PARAM": return addState(state, action);
+		case "DELETE_QUERY_PARAM": return deleteState(state, action);
+		case "TOGGLE_QUERY_PARAM": return toggleState(state, action);
+		case "UPDATE_QUERY_PARAM_KEY": return updateKey(state, action);
+		case "UPDATE_QUERY_PARAM_VALUE": return updateValue(state, action);
+		default: return state;
 	}
 }
 
 export function responseReducer(state = null, action: Action) {
-	if (action.type === "UPDATE_RESPONSE") {
-		return action.payload;
-	} else {
-		return state;
+	switch(action.type) {
+		case "UPDATE_RESPONSE": return action.payload;
+		default: return state;
 	}
 }
