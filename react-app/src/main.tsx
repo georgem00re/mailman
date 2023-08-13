@@ -17,7 +17,6 @@ export default function App() {
 			console.log(res);
 			dispatch(updateResponse(res));
 		}).catch((err) => {
-			console.log(err);
 			dispatch(updateResponse(err))
 		})
 	});
