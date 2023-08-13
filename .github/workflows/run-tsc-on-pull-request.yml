@@ -9,7 +9,7 @@ jobs:
       - uses: actions/setup-node@v3.6.0
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm install
         working-directory: ./react-app
       - run: npx tsc
         working-directory: ./react-app
