@@ -1,18 +1,19 @@
 
 import KeyValueTable from "../KeyValueTable";
+import { AppState } from "../../types/state";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleQueryParam, deleteQueryParam, addQueryParam, updateQueryParamKey, updateQueryParamValue } from "../../state/actions"
 
 export default function RequestParamsTab() {
 
-	const queryParams = useSelector(state => state.requestParams)
+	const queryParams = useSelector((state: AppState) => state.requestParams)
 	const dispatch = useDispatch();
 
-	const handleToggle = (index) => {
+	const handleToggle = (index: number) => {
 		dispatch(toggleQueryParam(index))
 	}
 
-	const handleDelete = (index) => {
+	const handleDelete = (index: number) => {
 		dispatch(deleteQueryParam(index))
 	}
 
@@ -20,11 +21,11 @@ export default function RequestParamsTab() {
 		dispatch(addQueryParam())
 	}
 
-	const handleKeyChange = (index, value) => {
+	const handleKeyChange = (index: number, value: string) => {
 		dispatch(updateQueryParamKey(index, value))
 	}
 
-	const handleValueChange = (index, value) => {
+	const handleValueChange = (index: number, value: string) => {
 		dispatch(updateQueryParamValue(index, value))
 	}
 

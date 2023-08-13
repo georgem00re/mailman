@@ -1,12 +1,8 @@
 
 import { RequestHeader, QueryParam } from "../types/requests"
+import { Action } from "../types/state";
 import { mockRequestHeaders, mockQueryParams } from "./mockState";
 import { addState, deleteState, toggleState, updateKey, updateValue } from "./helpers";
-
-interface Action {
-	payload: object;
-	type: string;
-}
 
 export function requestUrlReducer(state = "", action: Action) {
 	switch(action.type) {

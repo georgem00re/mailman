@@ -1,6 +1,4 @@
 
-import { RequestHeader, QueryParam } from "../types/requests";
-
 export function updateRequestUrl(str: string) {
 	return {
 		type: "UPDATE_REQUEST_URL",

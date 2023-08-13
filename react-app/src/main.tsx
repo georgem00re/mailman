@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import RequestEditor from "./components/RequestEditor";
 import ResponseViewer from "./components/ResponseViewer";

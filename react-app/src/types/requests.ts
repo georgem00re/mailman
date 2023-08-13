@@ -1,18 +1,18 @@
 
-interface KeyValuePair {
-	selected?: boolean;
+export interface KeyValuePair {
+	selected: boolean | null;
 	keyStr: string;
 	value: string;
 }
 
 export interface RequestHeader {
-	selected?: boolean,
+	selected: boolean | null,
 	keyStr: string,
 	value: string,
 }
 
 export interface QueryParam {
-	selected?: boolean,
+	selected: boolean | null,
 	keyStr: string,
 	value: string,
 }

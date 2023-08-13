@@ -1,4 +1,7 @@
 
+import { RequestHeader, QueryParam } from "../types/requests"
+import { Action } from "../types/state";
+
 export function addState(state: RequestHeader[] | QueryParam[], action: Action) {
 	return [ ...state, action.payload ]
 }
@@ -8,19 +11,19 @@ export function deleteState(state: RequestHeader[] | QueryParam[], action: Actio
 }
 
 export function toggleState(state: RequestHeader[] | QueryParam[], action: Action) {
-	return state.map((element, index) => {
+	return state.map((element: RequestHeader | QueryParam, index: number) => {
 		if (index == action.payload) return { ...element, selected: !element.selected }
 		else return element;
 	})
 }
 export function updateKey(state: RequestHeader[] | QueryParam[], action: Action) {
-	return state.map((element, index) => {
+	return state.map((element: RequestHeader | QueryParam, index: number) => {
 		if (index == action.payload.index) return { ...element, keyStr: action.payload.value }
 		else return element;
 	})
 }
 export function updateValue(state: RequestHeader[] | QueryParam[], action: Action) {
-	return state.map((element, index) => {
+	return state.map((element: RequestHeader | QueryParam, index: number) => {
 		if (index == action.payload.index) return { ...element, value: action.payload.value }
 		else return element;
 	})

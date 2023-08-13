@@ -1,15 +1,16 @@
 
 import { Fragment } from "react";
 import { BsFillTrashFill, BsPlusSquareFill } from "react-icons/Bs";
+import { KeyValuePair } from "../types/requests";
 
 interface KeyValueTableProps {
 	title: string;
-	keyValuePairs?: KeyValuePair;
-	onToggle(index: number): any;
-	onKeyChange(index: number, value: string): any;
-	onValueChange(index: number, value: string): any;
-	onDelete(index: number): any;
-	onAdd(): any;
+	keyValuePairs: KeyValuePair[] | null;
+	onToggle(index: number): void;
+	onKeyChange(index: number, value: string): void;
+	onValueChange(index: number, value: string): void;
+	onDelete(index: number): void;
+	onAdd(): void;
 }
 
 export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete, onKeyChange, onValueChange, onAdd }: KeyValueTableProps) {
@@ -18,7 +19,7 @@ export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete
 		return (
 			<Fragment key={index}>
 				<div className="checkbox">
-					<input type="checkbox" disabled={element.selected == null} style={{ opacity: element.selected == null ? "0" : "1" }} checked={element.selected} onClick={() => onToggle(index)}/>
+					<input type="checkbox" disabled={element.selected == null} style={{ opacity: element.selected == null ? "0" : "1" }} checked={element.selected ?? undefined} onClick={() => onToggle(index)}/>
 				</div>
 				<input className="key" value={element.keyStr} onChange={(e) => onKeyChange(index, e.target.value)} placeholder="Key"/>
 				<input className="value" value={element.value} onChange={(e) => onValueChange(index, e.target.value)} placeholder="Value"/>

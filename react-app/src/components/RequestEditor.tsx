@@ -1,5 +1,6 @@
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
+import { AppState } from "../types/state";
 import RequestParamsTab from "./tabs/RequestParamsTab";
 import RequestHeadersTab from "./tabs/RequestHeadersTab";
 import RequestBodyTab from "./tabs/RequestBodyTab";
@@ -7,13 +8,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateRequestUrl, updateRequestMethod} from "../state/actions";
 import SendRequestButton from "./buttons/SendRequestButton";
 
-const httpMethods = ["GET", "POST", "PUT", "DELETE"]
-
 export default function RequestEditor() {
 
 	const [activeTab, setActiveTab] = useState(0);
-	const requestUrl = useSelector((state: State) => state.requestUrl)
-	const requestMethod = useSelector((state: State) => state.requestMethod)
+	const requestUrl = useSelector((state: AppState) => state.requestUrl)
 	const dispatch = useDispatch();
 
 	const renderTab = () => {
@@ -25,12 +23,12 @@ export default function RequestEditor() {
 		}
 	}
 
-	const handleInputChange = (e) => {
-		dispatch(updateRequestUrl(e.target.value))
+	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		dispatch(updateRequestUrl(event.target.value))
 	}
 
-	const handleMethodChange = (e) => {
-		dispatch(updateRequestMethod(e.target.value))
+	const handleMethodChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+		dispatch(updateRequestMethod(event.target.value))
 	}
 
 	return (
@@ -46,17 +44,11 @@ export default function RequestEditor() {
 				<SendRequestButton/>
 			</div>
 			<nav>
-				<button className={activeTab == 0 ? "selected" : null} onClick={() => setActiveTab(0)}>Params</button>
-				<button className={activeTab == 1 ? "selected" : null} onClick={() => setActiveTab(1)}>Headers</button>
-				<button className={activeTab == 2 ? "selected" : null} onClick={() => setActiveTab(2)}>Body</button>
+				<button className={activeTab == 0 ? "selected" : undefined} onClick={() => setActiveTab(0)}>Params</button>
+				<button className={activeTab == 1 ? "selected" : undefined} onClick={() => setActiveTab(1)}>Headers</button>
+				<button className={activeTab == 2 ? "selected" : undefined} onClick={() => setActiveTab(2)}>Body</button>
 			</nav>
 			<div>{renderTab()}</div>
 		</div>
 	)
-}
-
-function getActiveTab(activeTab) {
-	switch (activeTab) {
-
-	}
 }

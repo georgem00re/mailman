@@ -1,12 +1,7 @@
 
-import { useSelector } from "react-redux";
 import { MdOutlineCookie } from "react-icons/Md"
 
 export default function ResponseCookiesTab() {
-
-	const response = useSelector((state) => state.response)
-	const cookies = response?.cookies
-
 	return (
 		<div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", fontSize: "3rem", height: "100%"}}>
 			<MdOutlineCookie/>

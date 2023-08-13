@@ -1,25 +1,28 @@
 
 import KeyValueTable from "../KeyValueTable";
 import { useSelector } from "react-redux";
+import { AppState } from "../../types/state";
+import { KeyValuePair } from "../../types/requests"
 
 export default function ResponseHeadersTab() {
 
-	// const keyValuePairs = [
-	// 	{ keyStr: "Content-Length", value: "0", selected: false },
-	// 	{ keyStr: "Connection", value: "keep-alive", selected: false },
-	// ]
+	const response = useSelector((state: AppState) => state.response);
 
-	const response = useSelector(state => state.response);
-
-
-	const keyValuePairs = Object.entries(response?.headers ?? {}).map(([key, value], index) => {
-		return { selected: null, keyStr: key, value: value }
+	const keyValuePairs: KeyValuePair[] | null = Object.entries(response?.headers ?? {}).map(([key, value]) => {
+		return { selected: null, keyStr: key, value: value as string }
 	})
-
 
 	return (
 		<div>
-			<KeyValueTable title="Response Headers" keyValuePairs={keyValuePairs}/>
+			<KeyValueTable 
+				title="Response Headers" 
+				keyValuePairs={keyValuePairs}
+				onToggle={() => undefined }
+				onKeyChange={() => undefined }
+				onValueChange={() => undefined }
+				onDelete={() => undefined }
+				onAdd={() => undefined }
+			/>
 		</div>
 	)
 }
