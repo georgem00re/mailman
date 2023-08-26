@@ -3,32 +3,29 @@
 
 .key-value-table {
 	display: grid;
-	grid-template-columns: fit-content(50px) 3fr 3fr fit-content(50px);
+	grid-template-columns: 3fr 3fr fit-content(50px) fit-content(50px) ;
 	align-items: center;
-	background-color: colors.$br-grey;
+	background-color: #262626;
 	grid-gap: 1px;
 	border-bottom-style: solid;
-	border-color: colors.$br-grey;
+	border-color: #262626;
 	border-width: 1px;
-	overflow-y: scroll;
 }
 
 .key-value-table .title {
 	grid-column: 1 / -1;
-	font-size: 0.85rem;
-	font-family: "Avenir Light";
-	padding: 10px;
-	background-color: white;
-}
-
-.key-value-table .table-header {
-	font-size: 0.75rem;
-	background-color: white;
-	padding-left: 5px;
-	font-family: "Avenir Heavy";
+	padding: 5px;
+	padding-left: 20px;
+	background-color: #181818;
+	color: #757575;
 	display: flex;
 	align-items: center;
-	height: 100%;
+	justify-content: space-between;
+}
+
+.key-value-table .title h1 {
+	font-size: 0.85rem;
+	font-family: "Inter-Regular"
 }
 
 .key-value-table .checkbox {
@@ -36,27 +33,27 @@
 	padding: 10px;
 	justify-content: center;
 	align-items: center;
-	background-color: white;
+	background-color: #181818;
 }
 
 .key-value-table .key, .key-value-table .value {
 	font-size: 0.8rem;
-	font-family: "Avenir Light";
-	background-color: white;
+	font-family: "Inter-Light";
+	background-color: #181818;
 	height: 100%;
 	display: flex;
 	align-items: center;
-	padding-left: 5px;
+	padding-left: 20px;
 	border-style: none;
 	outline: none;
+	color: white;
 }
 
 .key-value-table button {
-	background-color: white;
+	background-color: #181818;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-style: none;
-	padding: 10px;
 	cursor: pointer;
 }

@@ -1,11 +1,8 @@
 
 @use "colors";
-@use "components/request-editor";
-@use "components/response-viewer";
-@use "components/side-menu";
 @use "components/key-value-table";
-@use "components/response-body-tab";
-@use "components/no-response-tab";
+@use "fonts";
+@use "layouts";
 
 * {
 	padding: 0px;
@@ -16,32 +13,6 @@
 body, html, #root, .grid{
 	height: 100%;
 	width: 100%;
-}
-
-.grid {
-	display: grid;
-	grid-template-columns: 1fr minmax(70%, 4fr);
-	grid-template-rows: 1fr minmax(50%, 1fr);
-	box-sizing: border-box;
-}
-
-nav {
-	width: 100%;
-	background-color: white;
-}
-
-nav button {
-	background-color: transparent;
-	padding: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
-	border-style: none;
-	cursor: pointer;
-}
-
-.selected {
-	border-bottom-style: solid;
-	border-bottom-color: purple;
 }
 
 .CodeMirror {

@@ -1,5 +1,5 @@
 
-import KeyValueTable from "../KeyValueTable";
+import KeyValueTable from "../misc/KeyValueTable";
 import { AppState } from "../../types/state"
 import { useSelector, useDispatch } from "react-redux";
 import { toggleRequestHeader, deleteRequestHeader, updateRequestHeaderKey, updateRequestHeaderValue, addRequestHeader } from "../../state/actions";

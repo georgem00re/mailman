@@ -1,5 +1,5 @@
 
-import KeyValueTable from "../KeyValueTable";
+import KeyValueTable from "../misc/KeyValueTable";
 import { useSelector } from "react-redux";
 import { AppState } from "../../types/state";
 import { KeyValuePair } from "../../types/requests"

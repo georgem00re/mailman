@@ -1,6 +1,7 @@
 
 import { useSelector } from "react-redux";
 import { getRequest, postRequest } from "../../services/data.service";
+import { BsSendFill } from "react-icons/Bs";
 
 export default function SendRequestButton() {
 
@@ -18,7 +19,26 @@ export default function SendRequestButton() {
 		}
 	}
 
-	return <button style={style} onClick={handleClick}>Send</button>
+	return (
+		<button style={style} onClick={handleClick}>
+			Send
+			<BsSendFill style={{ marginLeft: "10px"}}/>
+		</button>
+	)
 }
 
-const style = { marginLeft: "10px", backgroundColor: "#467AE9", color: "white", borderStyle: "none", paddingLeft: "30px", paddingRight: "30px", borderRadius: "2px", cursor: "pointer"}
+const style = { 
+	backgroundColor: "#444854",
+	color: "white",
+	borderStyle: "none",
+	paddingLeft: "25px", 
+	paddingRight: "25px",
+	marginLeft: "15px",
+	cursor: "pointer",
+	fontFamily: "Avenir Medium",
+	display: "flex",
+	justifyContent: "flex-start",
+	alignItems: "center",
+	borderRadius: "3px",
+	fontFamily: "Inter-Medium"
+}

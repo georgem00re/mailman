@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import RequestEditor from "./components/RequestEditor";
-import ResponseViewer from "./components/ResponseViewer";
-import SideMenu from "./components/SideMenu";
+import RequestEditor from "./components/misc/RequestEditor";
+import ResponseViewer from "./components/misc/ResponseViewer";
 import store from "./state/store";
 import { Provider, useDispatch } from "react-redux";
 import { fetchExampleResponse } from "./services/data.service";
 import { updateResponse } from "./state/actions";
+import NavigationBar from "./components/misc/NavigationBar";
 
 export default function App() {
 
@@ -23,9 +23,8 @@ export default function App() {
 
 	return (
 		<div className="grid">
-			<SideMenu/>
+			<NavigationBar/>
 			<RequestEditor/>
-			<ResponseViewer/>
 		</div>
 	)
 }
