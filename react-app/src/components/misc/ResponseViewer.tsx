@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../types/state";
 import ResponseStatusLabel from "../labels/ResponseStatusLabel";
 import ResponseTimeLabel from "../labels/ResponseTimeLabel";
+import TabNavigator from "./TabNavigator";
 
 export default function ResponseViewer() {
 
@@ -24,31 +25,9 @@ export default function ResponseViewer() {
 		}
 	}
 
-	const renderNavContent = () => {
-		if (response == null) {
-			return <p style={{ padding: "10px", fontFamily: "Avenir" }}>Response</p>
-		} else {
-			return (
-				<Fragment>
-					<button className={activeTab == 0 ? "selected" : undefined} onClick={() => setActiveTab(0)}>Body</button>
-					<button className={activeTab == 1 ? "selected" : undefined}onClick={() => setActiveTab(1)}>Cookies</button>
-					<button className={activeTab == 2 ? "selected" : undefined} onClick={() => setActiveTab(2)}>Headers</button>
-				</Fragment>
-			)
-		}
-	}
-
 	return (
 		<div className="response-viewer" style={style}>
-			<nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexDirection: "row"}}>
-				<div>
-					{renderNavContent()}
-				</div>
-				<div style={{ display: "flex", flexDirection: "row"}}>
-					<ResponseStatusLabel/>
-					<ResponseTimeLabel/>
-				</div>
-			</nav>
+			<TabNavigator tabs={["Body", "Cookies", "Headers"]} selected={activeTab} onSelectTab={(index) => setActiveTab(index)}/>
 			<div style={{ width: "100%", height: "100%"}}>{renderTab()}</div>
 		</div>
 	)
@@ -60,7 +39,8 @@ const style = {
 	maxWidth: "100%",
 	borderTopStyle: "solid",
 	borderWidth: "1px",
-	borderTopColor: "grey",
+	borderTopColor: "#262626",
+	backgroundColor: "#181818",
 	display: "flex",
 	alignItems: "center",
 	flexDirection: "column",

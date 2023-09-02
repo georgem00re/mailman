@@ -1,7 +1,7 @@
 
 import { RequestHeader, QueryParam } from "../types/requests"
 import { Action } from "../types/state";
-import { mockRequestHeaders, mockQueryParams } from "./mockState";
+import { mockRequestHeaders, mockQueryParams, mockRequestBody } from "./mockState";
 import { addState, deleteState, toggleState, updateKey, updateValue } from "./helpers";
 
 export function requestUrlReducer(state = "", action: Action) {
@@ -18,7 +18,7 @@ export function requestMethodReducer(state = "GET", action: Action) {
 	}
 }
 
-export function requestBodyReducer(state: string = "testing", action: Action) {
+export function requestBodyReducer(state: string = mockRequestBody, action: Action) {
 	switch(action.type) {
 		case "UPDATE_REQUEST_BODY": return action.payload;
 		default: return state;
@@ -44,6 +44,12 @@ export function requestParamsReducer(state: QueryParam[] = mockQueryParams, acti
 		case "UPDATE_QUERY_PARAM_KEY": return updateKey(state, action);
 		case "UPDATE_QUERY_PARAM_VALUE": return updateValue(state, action);
 		default: return state;
+	}
+}
+
+export function requestQueryStringReducer(state: String = getQueryString(mockQueryParams), action: Action) {
+	switch(action.type) {
+		case "UPDATE_QUERY_STRING": return updateQueryString()
 	}
 }
 

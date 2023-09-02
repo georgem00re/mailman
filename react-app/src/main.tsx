@@ -9,22 +9,11 @@ import { updateResponse } from "./state/actions";
 import NavigationBar from "./components/misc/NavigationBar";
 
 export default function App() {
-
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		fetchExampleResponse().then((res) => {
-			console.log(res);
-			dispatch(updateResponse(res));
-		}).catch((err) => {
-			dispatch(updateResponse(err))
-		})
-	});
-
 	return (
 		<div className="grid">
 			<NavigationBar/>
 			<RequestEditor/>
+			<ResponseViewer/>
 		</div>
 	)
 }

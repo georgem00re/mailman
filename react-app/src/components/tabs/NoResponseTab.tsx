@@ -1,10 +1,10 @@
 
-import { TbTruckDelivery } from "react-icons/Tb";
+import { FaTruck } from "react-icons/Fa"
 
 export default function NoResponseTab() {
 	return (
 		<div className="no-response-tab" style={style}>
-			<TbTruckDelivery/>
+			<FaTruck/>
 			<p style={textStyle}>Enter the URL and click Send to get a response</p>
 		</div>
 	)
@@ -19,6 +19,7 @@ const style = {
 	alignItems: "center",
 	flexDirection: "column",
 	fontSize: "5rem",
+	color: "#757575"
 }
 
 const textStyle = {

@@ -29,5 +29,13 @@ export default function RequestParamsTab() {
 		dispatch(updateQueryParamValue(index, value))
 	}
 
-	return <KeyValueTable title="Query Parameters" keyValuePairs={queryParams} onToggle={(index) => handleToggle(index)} onDelete={(index) => handleDelete(index)} onAdd={handleAdd} onKeyChange={(index, value) => handleKeyChange(index, value)} onValueChange={(index, value) => handleValueChange(index, value)}/>
+	return <KeyValueTable 
+		title="Query Parameters" 
+		keyValuePairs={queryParams} 
+		onToggle={(index) => handleToggle(index)} 
+		onDelete={(index) => handleDelete(index)} 
+		onAdd={handleAdd} 
+		onKeyChange={(index, value) => handleKeyChange(index, value)} 
+		onValueChange={(index, value) => handleValueChange(index, value)}
+		/>
 }

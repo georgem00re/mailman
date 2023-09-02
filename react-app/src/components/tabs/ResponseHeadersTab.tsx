@@ -13,16 +13,15 @@ export default function ResponseHeadersTab() {
 	})
 
 	return (
-		<div>
-			<KeyValueTable 
-				title="Response Headers" 
-				keyValuePairs={keyValuePairs}
-				onToggle={() => undefined }
-				onKeyChange={() => undefined }
-				onValueChange={() => undefined }
-				onDelete={() => undefined }
-				onAdd={() => undefined }
-			/>
-		</div>
+		<KeyValueTable 
+			title="Response Headers" 
+			keyValuePairs={keyValuePairs}
+			onToggle={() => undefined }
+			onKeyChange={() => undefined }
+			onValueChange={() => undefined }
+			onDelete={() => undefined }
+			onAdd={() => undefined }
+			editable={false}
+		/>
 	)
 }

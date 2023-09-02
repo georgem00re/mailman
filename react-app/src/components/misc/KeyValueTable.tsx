@@ -14,17 +14,18 @@ interface KeyValueTableProps {
 	onValueChange(index: number, value: string): void;
 	onDelete(index: number): void;
 	onAdd(): void;
+	editable: bool;
 }
 
-export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete, onKeyChange, onValueChange, onAdd }: KeyValueTableProps) {
+export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete, onKeyChange, onValueChange, onAdd, editable = true }: KeyValueTableProps) {
 
 	const rows = keyValuePairs?.map((element, index) => {
 		return (
 			<Fragment key={index}>
 				<input className="key" value={element.keyStr} onChange={(e) => onKeyChange(index, e.target.value)} placeholder={`Parameter ${index + 1}`}/>
 				<input className="value" value={element.value} onChange={(e) => onValueChange(index, e.target.value)} placeholder={`Value ${index + 1}`}/>
-				<ToggleButton selected={element.selected} onClick={() => onToggle(index)}/>
-				<DeleteButton onClick={() => onDelete(index)}/>
+				<ToggleButton selected={element.selected} onClick={() => onToggle(index)} disabled={!editable}/>
+				<DeleteButton onClick={() => onDelete(index)} disabled={!editable}/>
 			</Fragment>
 		)
 	})
@@ -33,7 +34,7 @@ export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete
 		<div className="key-value-table">
 			<div className="title">
 				<h1>{title}</h1>
-				<AddButton onClick={() => alert("Working!")} onClick={onAdd}/>
+				<AddButton onClick={onAdd} disabled={!editable}/>
 			</div>
 			{rows}
 		</div>
