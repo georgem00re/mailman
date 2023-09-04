@@ -3,6 +3,7 @@
 @use "components/key-value-table";
 @use "fonts";
 @use "layouts";
+@use "keyframes";
 
 * {
 	padding: 0px;
@@ -10,7 +11,12 @@
 	font-family: "Avenir";
 }
 
-body, html, #root, .grid{
+body, html, #root, .grid {
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
+}
+
+button {
+	cursor: pointer;
 }

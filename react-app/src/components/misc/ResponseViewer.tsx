@@ -9,13 +9,16 @@ import { AppState } from "../../types/state";
 import ResponseStatusLabel from "../labels/ResponseStatusLabel";
 import ResponseTimeLabel from "../labels/ResponseTimeLabel";
 import TabNavigator from "./TabNavigator";
+import LoadingResponseTab from "../tabs/LoadingResponseTab";
 
 export default function ResponseViewer() {
 
 	const [activeTab, setActiveTab] = useState(0);
-	const response = useSelector((state: AppState) => state.response) 
+	const response = useSelector((state: AppState) => state.response)
+	const responseLoading = useSelector((state: AppState) => state.responseLoading)
 
 	const renderTab = () => {
+		if (responseLoading) return <LoadingResponseTab/>
 		if (response == null) return <NoResponseTab/>
 		switch(activeTab) {
 			case 0: return <ResponseBodyTab/>;
@@ -24,10 +27,14 @@ export default function ResponseViewer() {
 			default: return <ResponseBodyTab/>;
 		}
 	}
+	console.log(response)
+	const headersText = response == null ? "Headers" : `Headers (${Object.entries(response?.headers ?? {}).length})`
 
 	return (
 		<div className="response-viewer" style={style}>
-			<TabNavigator tabs={["Body", "Cookies", "Headers"]} selected={activeTab} onSelectTab={(index) => setActiveTab(index)}/>
+			<TabNavigator tabs={["Body", "Cookies", headersText]} selected={activeTab} onSelectTab={(index) => setActiveTab(index)}>
+				<ResponseStatusLabel/>
+			</TabNavigator>
 			<div style={{ width: "100%", height: "100%"}}>{renderTab()}</div>
 		</div>
 	)

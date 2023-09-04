@@ -6,14 +6,13 @@ export default function RequestUrlTextField() {
 
 	const dispatch = useDispatch();
 	const requestUrl = useSelector((state: AppState) => state.requestUrl)
-	const placeholder = "Enter URL or paste text"
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		dispatch(updateRequestUrl(event.target.value))
 	}
 
 	return (
-		<input type="text" style={style} placeholder={placeholder} value={requestUrl} onChange={handleInputChange}/>
+		<input type="text" style={style} placeholder="URL" value={requestUrl} onChange={handleInputChange}/>
 	)
 }
 

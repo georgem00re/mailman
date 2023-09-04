@@ -28,10 +28,3 @@ export function updateValue(state: RequestHeader[] | QueryParam[], action: Actio
 		else return element;
 	})
 }
-
-export function getQueryString(queryParams: QueryParam[]) {
-	const baseStr = "?"
-	queryParams.forEach((element, index) => {
-		const str = `&${element.keyStr}=${element.value}`
-	})
-}

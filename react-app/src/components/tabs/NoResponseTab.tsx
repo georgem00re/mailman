@@ -1,25 +1,14 @@
 
 import { FaTruck } from "react-icons/Fa"
+import Tab from "./Tab";
 
 export default function NoResponseTab() {
 	return (
-		<div className="no-response-tab" style={style}>
+		<Tab>
 			<FaTruck/>
 			<p style={textStyle}>Enter the URL and click Send to get a response</p>
-		</div>
+		</Tab>
 	)
-}
-
-const style = {
-	height: "100%",
-	width: "100%",
-	overflow: "hidden",
-	display: "flex",
-	justifyContent: "center",
-	alignItems: "center",
-	flexDirection: "column",
-	fontSize: "5rem",
-	color: "#757575"
 }
 
 const textStyle = {

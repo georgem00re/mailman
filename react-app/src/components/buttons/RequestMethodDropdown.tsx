@@ -46,7 +46,7 @@ export function DropdownMenu({ visible, onButtonClick }) {
 
 	const elements = requestMethods.map((element, index) => {
 		return (
-			<button style={requestMethodButtonStyle} key={index} onClick={() => onClickHandler(element)}>
+			<button className="hover" style={requestMethodButtonStyle} key={index} onClick={() => onClickHandler(element)}>
 				{element}
 			</button>
 		)

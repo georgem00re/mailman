@@ -12,7 +12,7 @@ export default function BodyTextField({ readOnly = false, value }) {
 
 	return <textarea 
         style={textAreaStyle} 
-        placeholder="..." 
+        placeholder="This request does not have a body" 
         readOnly={readOnly} 
         value={value} 
         onChange={(e) => onChangeHandler(e.target.value)}

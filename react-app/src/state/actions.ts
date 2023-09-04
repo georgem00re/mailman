@@ -97,3 +97,15 @@ export function updateRequestHeaderKey(index: number, value: string) {
 	}
 }
 
+export function setResponseLoading() {
+	return {
+		type: "SET_RESPONSE_LOADING"
+	}
+}
+
+export function setResponseNotLoading() {
+	return {
+		type: "SET_RESPONSE_NOT_LOADING"
+	}
+}
+

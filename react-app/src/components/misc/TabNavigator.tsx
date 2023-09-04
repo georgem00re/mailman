@@ -1,5 +1,5 @@
 
-export default function TabNavigator({ selected, tabs, onSelectTab }) {
+export default function TabNavigator({ selected, tabs, onSelectTab, children }) {
 
 	const getStyle = (index) => {
 		if (selected == index) {
@@ -15,7 +15,8 @@ export default function TabNavigator({ selected, tabs, onSelectTab }) {
 
 	return (
 		<nav style={navStyle}>
-			{getButtons}
+			<div>{getButtons}</div>
+			<div style={{ display: "flex", justifyContent: "center", }}>{children}</div>
 		</nav>
 	)
 }
@@ -27,6 +28,7 @@ const navStyle = {
 	boxSizing: "border-box",
 	display: "flex",
 	alignItems: "center",
+	justifyContent: "space-between",
 	borderBottomStyle: "solid",
 	borderWidth: "1px",
 	borderColor: "#262626",

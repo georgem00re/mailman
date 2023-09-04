@@ -7,6 +7,8 @@ import {
 	requestBodyReducer, 
 	requestHeadersReducer,
 	requestParamsReducer,
+	responseLoadingReducer,
+	queryStringReducer
 } from "./reducers";
 
 const reducers = combineReducers({
@@ -16,6 +18,7 @@ const reducers = combineReducers({
 	requestBody: requestBodyReducer,
 	requestHeaders: requestHeadersReducer,
 	requestParams: requestParamsReducer,
+	responseLoading: responseLoadingReducer,
 });
 
 export default createStore(reducers);
