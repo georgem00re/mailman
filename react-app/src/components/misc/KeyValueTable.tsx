@@ -15,14 +15,15 @@ interface KeyValueTableProps {
 	onDelete(index: number): void;
 	onAdd(): void;
 	editable: bool;
+	placeholder: string;
 }
 
-export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete, onKeyChange, onValueChange, onAdd, editable = true }: KeyValueTableProps) {
+export default function KeyValueTable({ title, keyValuePairs, onToggle, onDelete, onKeyChange, onValueChange, onAdd, editable = true, placeholder }: KeyValueTableProps) {
 
 	const rows = keyValuePairs?.map((element, index) => {
 		return (
 			<Fragment key={index}>
-				<input className="key" value={element.keyStr} onChange={(e) => onKeyChange(index, e.target.value)} placeholder={`Parameter ${index + 1}`}/>
+				<input className="key" value={element.keyStr} onChange={(e) => onKeyChange(index, e.target.value)} placeholder={`${placeholder} ${index + 1}`}/>
 				<input className="value" value={element.value} onChange={(e) => onValueChange(index, e.target.value)} placeholder={`Value ${index + 1}`}/>
 				<ToggleButton selected={element.selected} onClick={() => onToggle(index)} disabled={!editable}/>
 				<DeleteButton onClick={() => onDelete(index)} disabled={!editable}/>

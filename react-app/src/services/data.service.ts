@@ -1,15 +1,21 @@
 
 import axios from "axios";
-import store from "../state/store";
 
-export async function sendRequest( url: String) {
-
-	const headers = store.getState()
-
-	return axios.get(url, {
-		"Access-Control-Allow-Origin": "*",
-			"Access-Control-Allow-Methods": "GET",
-			"Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-			"Content-Type": "application/json",
+export async function sendRequest(store) {
+	const { requestUrl, requestMethod, requestBody, requestHeaders, requestParams } = store.getState();
+	return axios.request({
+		url: requestUrl,
+		method: requestMethod,
+		headers: requestHeaders.toObject(),
+		params: requestParams.toObject(),
+		data: { text: "some-text" },
 	});
+}
+
+Array.prototype.toObject = function() {
+	const obj = {}
+	this.filter((element) => element.selected).forEach((element) => {
+		obj[element.keyStr] = element.value
+	})
+	return obj;
 }

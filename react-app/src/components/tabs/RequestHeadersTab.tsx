@@ -37,5 +37,6 @@ export default function RequestHeadersTab() {
 		onKeyChange={(index, value) => handleKeyChange(index, value)} 
 		onValueChange={(index, value) => handleValueChange(index, value)} 
 		onAdd={handleAdd}
+		placeholder="Header"
 	/>
 }

@@ -2,11 +2,16 @@
 import { useDispatch } from "react-redux";
 import { updateRequestBody } from "../../state/actions";
 
-export default function BodyTextField({ readOnly = false, value }) {
+interface BodyTextFieldProps {
+    readOnly: boolean;
+    value: string
+}
+
+export default function BodyTextField({ readOnly = false, value }: BodyTextFieldProps) {
 
     const dispatch = useDispatch();
 
-    const onChangeHandler = (val) => {
+    const onChangeHandler = (val: string) => {
         dispatch(updateRequestBody(val))
     }
 

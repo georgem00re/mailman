@@ -20,8 +20,3 @@ const tabStyle = {
 	fontSize: "5rem",
 	color: "#757575"
 }
-
-const textStyle = {
-	fontSize: "1rem",
-	marginTop: "10px",
-}

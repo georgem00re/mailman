@@ -25,7 +25,7 @@ export default function RequestEditor() {
 	return (
 		<div className="request-editor" style={style}>
 			<RequestHeader/>
-			<TabNavigator selected={activeTab} tabs={["Parameters", "Headers", "Body"]} onSelectTab={(index) => setActiveTab(index)}/>
+			<TabNavigator selected={activeTab} tabs={["Parameters", "Headers", "Body"]} onSelectTab={(index: number) => setActiveTab(index)}/>
 			<div>{renderTab()}</div>
 		</div>
 	)

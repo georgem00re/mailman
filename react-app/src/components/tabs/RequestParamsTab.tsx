@@ -37,5 +37,6 @@ export default function RequestParamsTab() {
 		onAdd={handleAdd} 
 		onKeyChange={(index, value) => handleKeyChange(index, value)} 
 		onValueChange={(index, value) => handleValueChange(index, value)}
+		placeholder="Parameter"
 		/>
 }

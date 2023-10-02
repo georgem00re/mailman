@@ -2,8 +2,6 @@
 import { RequestHeader, QueryParam } from "../types/requests"
 import { Action } from "../types/state";
 import { addState, deleteState, toggleState, updateKey, updateValue } from "./helpers";
-import { calcQueryString } from "./helpers";
-import store from "./store";
 
 export function requestUrlReducer(state = "", action: Action) {
 	switch(action.type) {
@@ -48,12 +46,6 @@ export function requestParamsReducer(state: QueryParam[] = [{ keyStr: "", value:
 	}
 }
 
-export function requestQueryStringReducer(state: String = getQueryString(mockQueryParams), action: Action) {
-	switch(action.type) {
-		case "UPDATE_QUERY_STRING": return updateQueryString()
-	}
-}
-
 export function responseReducer(state = null, action: Action) {
 	switch(action.type) {
 		case "UPDATE_RESPONSE": return action.payload;
@@ -68,19 +60,3 @@ export function responseLoadingReducer(state = false, action: Action) {
 		default: return state;
 	}
 }
-
-// export function queryStringReducer(state = "", action: Action) {
-
-// 	const queryParams = store.getState().queryParams
-
-// 	switch (action.type) {
-// 		case "ADD_QUERY_PARAM": return calcQueryString(queryParams);
-// 		case "DELETE_QUERY_PARAM": return calcQueryString(queryParams);
-// 		case "TOGGLE_QUERY_PARAM": return calcQueryString(queryParams);
-// 		case "UPDATE_QUERY_PARAM_KEY": return calcQueryString(queryParams);
-// 		case "UPDATE_QUERY_PARAM_VALUE": return calcQueryString(queryParams);
-// 		default: return state;
-// 	}
-// }
-
-

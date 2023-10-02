@@ -1,5 +1,5 @@
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import ResponseBodyTab from "../tabs/ResponseBodyTab";
 import ResponseCookiesTab from "../tabs/ResponseCookiesTab";
 import ResponseHeadersTab from "../tabs/ResponseHeadersTab";

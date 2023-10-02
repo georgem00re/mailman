@@ -1,6 +1,7 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { updateRequestUrl } from "../../state/actions";
+import { AppState } from "../../types/store";
 
 export default function RequestUrlTextField() {
 

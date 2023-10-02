@@ -8,7 +8,6 @@ import {
 	requestHeadersReducer,
 	requestParamsReducer,
 	responseLoadingReducer,
-	queryStringReducer
 } from "./reducers";
 
 const reducers = combineReducers({

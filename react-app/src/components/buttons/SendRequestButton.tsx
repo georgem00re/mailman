@@ -4,6 +4,7 @@ import { sendRequest } from "../../services/data.service";
 import { updateResponse, setResponseLoading, setResponseNotLoading } from "../../state/actions";
 import { BsSendFill } from "react-icons/Bs";
 import LoadingSpinner from "../misc/LoadingSpinner";
+import store from "../../state/store";
 
 export default function SendRequestButton() {
 
@@ -13,12 +14,12 @@ export default function SendRequestButton() {
 
 	const onClickHandler = () => {
 		dispatch(setResponseLoading());
-
 		setTimeout(() => {
-			sendRequest(requestUrl).then((res) => {
-				dispatch(updateResponse(res));
-				dispatch(setResponseNotLoading());
-			})
+			sendRequest(store)
+				.then((res) => {
+					dispatch(updateResponse(res));
+					dispatch(setResponseNotLoading());
+				})
 		}, 1000)
 	}
 
