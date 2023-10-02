@@ -1,0 +1,59 @@
+
+@use "../colors";
+
+.key-value-table {
+	display: grid;
+	grid-template-columns: 3fr 3fr fit-content(50px) fit-content(50px) ;
+	align-items: center;
+	background-color: #262626;
+	grid-gap: 1px;
+	border-bottom-style: solid;
+	border-color: #262626;
+	border-width: 1px;
+}
+
+.key-value-table .title {
+	grid-column: 1 / -1;
+	padding: 5px;
+	padding-left: 20px;
+	background-color: #181818;
+	color: #757575;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.key-value-table .title h1 {
+	font-size: 0.85rem;
+	font-family: "Inter-Regular"
+}
+
+.key-value-table .checkbox {
+	display: flex;
+	padding: 10px;
+	justify-content: center;
+	align-items: center;
+	background-color: #181818;
+}
+
+.key-value-table .key, .key-value-table .value {
+	font-size: 0.8rem;
+	font-family: "Inter-Light";
+	background-color: #181818;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	border-style: none;
+	outline: none;
+	color: white;
+}
+
+.key-value-table button {
+	background-color: #181818;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-style: none;
+	cursor: pointer;
+}
